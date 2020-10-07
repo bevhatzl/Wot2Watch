@@ -1,17 +1,14 @@
 $(document).ready(function () {
 
     const apiKey = "8b62510912a7383c1b19590d2a74d5c1";
-    let pageNum;
-    let genreID = 0;
+    let seriesPageNum;
+    let seriesGenreID = 0;
 
     // To convert the genre to a genreID needed for api search
     function getGenre(genreString) {
         switch (genreString) {
-            case "Action":
-                genreID = 28;
-                break;
-            case "Adventure":
-                genreID = 12;
+            case "Action & Adventure":
+                genreID = 10759;
                 break;
             case "Animation":
                 genreID = 16;
@@ -31,35 +28,29 @@ $(document).ready(function () {
             case "Family":
                 genreID = 10751;
                 break;
-            case "Fantasy":
-                genreID = 14;
-                break;
-            case "History":
-                genreID = 36;
-                break;
-            case "Horror":
-                genreID = 27;
-                break;
-            case "Music":
-                genreID = 10402;
+            case "Kids":
+                genreID = 10762;
                 break;
             case "Mystery":
                 genreID = 9648;
                 break;
-            case "Romance":
-                genreID = 10749;
+            case "News":
+                genreID = 10763;
                 break;
-            case "Science Fiction":
-                genreID = 878;
+            case "Reality":
+                genreID = 10764;
                 break;
-            case "TV Movie":
-                genreID = 10770;
+            case "Sci-Fi & Fantasy":
+                genreID = 10765;
                 break;
-            case "Thriller":
-                genreID = 53;
+            case "Soap":
+                genreID = 10766;
                 break;
-            case "War":
-                genreID = 10752;
+            case "Talk":
+                genreID = 10767;
+                break;
+            case "War & Politics":
+                genreID = 10768;
                 break;
             case "Western":
                 genreID = 37;
@@ -73,27 +64,27 @@ $(document).ready(function () {
 
     function renderResults(response) {
         // Remove the home page carousel display
-        $(".pictureCarosel").css("display", "none");
+        $(".seriesCarosel").css("display", "none");
         // Display the movie poster cards
-        $("#search-results").css("display", "flex");
+        $("#series-results").css("display", "flex");
         // Calculate which response index to display given the current results page number
-        let maxVal = pageNum * 10;
+        let maxVal = seriesPageNum * 10;
         let minVal = maxVal - 10;
         // Check if any more results from api
         if (response.results[minVal] !== undefined) {
-            // Clear any movies from previous display
-            $("#search-results").html("");
+            // Clear any series from previous display
+            $("#series-results").html("");
             // Retrieve 10 results from the api response, create the html dynamically and append to search results
             for (i = minVal; i < maxVal; i++) {
-                // Create the movie holder element and card
+                // Create the series holder element and card
                 let mHolder = $('<div class="movieHolder m-2 col-lg-5">');
                 let genreCard = $('<div class="card genre-card">');
                 let cardBody = $('<div class="card-body">');
-                // Get the movie data, setup the element 
-                cardBody.append('<h5 class="card-title" id="movie-title" + i>' + response.results[i].title + '</h5>');
-                cardBody.append('<p class="card-text" id="year" + i>' + response.results[i].release_date + '</p>');
-                cardBody.append('<p class="card-text" id="plot" + i>' + response.results[i].overview + '</p>');
-                // For the movie poster image
+                // Get the series data, setup the element 
+                cardBody.append('<h5 class="card-title" id="series-title" + i>' + response.results[i].name + '</h5>');
+                cardBody.append('<p class="card-text" id="series-year" + i>' + response.results[i].first_air_date + '</p>');
+                cardBody.append('<p class="card-text" id="series-plot" + i>' + response.results[i].overview + '</p>');
+                // For the series poster image
                 let imageSrc = "http://image.tmdb.org/t/p/w185//" + response.results[i].poster_path;
                 let imageEl = $('<img>');
                 imageEl.attr("src", imageSrc);
@@ -106,21 +97,21 @@ $(document).ready(function () {
 
                 genreCard.append(cardBody);
                 mHolder.append(genreCard);
-                $("#search-results").append(mHolder);
+                $("#series-results").append(mHolder);
                 // Display the more results button
                 $("#more-btn").css("display", "block");
             }
         } else {
-            $("#error-display").css("display", "block");
+            $("#series-error-display").css("display", "block");
         }
     }
 
     function buildQueryURL(genreSearch) {
-        let queryURL = "https://api.themoviedb.org/3/discover/movie?api_key="
+        let queryURL = "https://api.themoviedb.org/3/discover/tv?api_key="
         return queryURL + apiKey + "&language=en-US&sort_by=popularity.desc&with_genres=" + genreSearch;
     }
 
-    function getMovieData(genreSearch) {
+    function getSeriesData(genreSearch) {
         // Build the query URL for the ajax request to The Movie DB
         let queryURL = buildQueryURL(genreSearch);
 
@@ -132,19 +123,19 @@ $(document).ready(function () {
         });
     }
 
-    $(document).on("click", "#movie-menu a", function (event) {
+    $(document).on("click", "#series-menu a", function (event) {
         event.preventDefault();
-        $("#error-display").css("display", "none");
-        pageNum = 1;
-        let movieOption = $(this).html();
-        genreID = getGenre(movieOption);
-        getMovieData(genreID);
+        $("#series-error-display").css("display", "none");
+        seriesPageNum = 1;
+        let seriesOption = $(this).html();
+        seriesGenreID = getGenre(seriesOption);
+        getSeriesData(seriesGenreID);
     })
 
     $(document).on("click", "#more-btn", function (event) {
         event.preventDefault();
-        pageNum++;
-        getMovieData(genreID);
+        seriesPageNum++;
+        getSeriesData(genreID);
         // Set the focus to the top of the page
         window.location = '#';
     })

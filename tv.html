@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Miriam+Libre&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <title>Wot2Watch</title>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- For favicon -->
+    <link rel="apple-touch-icon" sizes="57x57" href="./favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="./favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="./favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="./favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="./favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="./favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="./favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="./favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="./favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="./favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon/favicon-16x16.png">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="./favicon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+</head>
+
+<body>
+
+    <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark container-fluid" id="main-nav">
+        <a class="navbar-brand" href="./index.html">Wot2Watch <img src="./images/W2W.png" alt="W2W logo"
+                id="logo-img"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler"
+            aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarToggler">
+            <form class="form-inline ml-auto">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <button class="btn btn-outline-success my-2 my-sm-0 nav-item" type="submit"><a
+                                href="./index.html">Movies</a></button></li>
+                    <li class="nav-item"> <button class="btn btn-outline-success my-2 my-sm-0 nav-item"
+                            type="submit">Series</button></li>
+                </ul>
+            </form>
+        </div>
+    </nav>
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-md-12" id="heading">
+                <h1 class="titleMovies">Which series should you watch today...</h1>
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Select a Genre
+                    </button>
+                    <div class="dropdown-menu" id="series-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="#">Action & Adventure</a>
+                        <a class="dropdown-item" href="#">Animation</a>
+                        <a class="dropdown-item" href="#">Comedy</a>
+                        <a class="dropdown-item" href="#">Crime</a>
+                        <a class="dropdown-item" href="#">Documentary</a>
+                        <a class="dropdown-item" href="#">Drama</a>
+                        <a class="dropdown-item" href="#">Family</a>
+                        <a class="dropdown-item" href="#">Kids</a>
+                        <a class="dropdown-item" href="#">Mystery</a>
+                        <a class="dropdown-item" href="#">News</a>
+                        <a class="dropdown-item" href="#">Reality</a>
+                        <a class="dropdown-item" href="#">Sci-Fi & Fantasy</a>
+                        <a class="dropdown-item" href="#">Soap</a>
+                        <a class="dropdown-item" href="#">Talk</a>
+                        <a class="dropdown-item" href="#">War & Politics</a>
+                        <a class="dropdown-item" href="#">Western</a>
+                    </div>
+                </div>
+            </div>
+            <div class="alert alert-warning" id="series-error-display" style="display: none" role="alert">
+                Sorry, you have reached the end of the list.
+            </div>
+        </div>
+
+        <div class="seriesCarosel m-2">
+
+            <div id="tvCarousel" class="carousel slide" data-ride="carousel" data-interval="2000">
+                <div class="carousel-inner">
+                    <div class="carousel-item active" data-interval="5000">
+                        <img src="./images/utopia.jpg" class="d-block seriesSlide mt-2" alt="...">
+                        <div class="captext mt-2 mb-2">
+                            <button class="watchTrailer"><a href="https://www.youtube.com/watch?v=IastSMSmWgw"
+                                    target="_blank" class="watchTrailer">Watch Trailer</a></button>
+                        </div>
+                    </div>
+
+                    <div class="carousel-item" data-interval="5000">
+                        <img src="./images/umbrella.jpg" class="d-block seriesSlide mt-2" alt="...">
+                        <div class="captext mt-2 mb-2">
+                            <button class="watchTrailer"><a href="https://www.youtube.com/watch?v=0DAmWHxeoKw"
+                                    target="_blank" class="watchTrailer">Watch
+                                    Trailer</a></button>
+                        </div>
+                    </div>
+
+                    <div class="carousel-item" data-interval="5000">
+                        <img src="./images/emily.jpg" class="d-block seriesSlide mt-2" alt="...">
+                        <div class="captext mt-2 mb-2">
+                            <button class="watchTrailer"><a href="https://www.youtube.com/watch?v=lptctjAT-Mk"
+                                    target="_blank" class="watchTrailer">Watch Trailer</a></button>
+                        </div>
+                    </div>
+
+                </div>
+                <a class="carousel-control-prev" href="#tvCarousel" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#tvCarousel" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+
+        </div>
+
+        <div class="row" id="series-results">
+            <!-- HTML created dynamically in script.js -->
+        </div>
+
+        <div id="more-btn">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">More...</button>
+        </div>
+
+        <div class="row" id="description">
+            <h3>Generating for you the most popular movies and series based on the genre of your choice.</h3>
+        </div>
+
+        <footer>
+            Beverley Hatzl - 2020
+        </footer>
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="./series.js"></script>
+
+
+</body>
+
+</html>
