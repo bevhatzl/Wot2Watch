@@ -1,6 +1,8 @@
 $(document).ready(function () {
 
     const apiKey = "8b62510912a7383c1b19590d2a74d5c1";
+    let pageNum;
+    let genreID = 0;
 
     // To convert the genre to a genreID needed for api search
     function getGenre(genreString) {
@@ -74,34 +76,44 @@ $(document).ready(function () {
         $(".pictureCarosel").css("display", "none");
         // Display the movie poster cards
         $("#search-results").css("display", "flex");
-        // Clear any movies from previous search
-        $("#search-results").html("");
+        // Calculate which response index to display given the current results page number
+        let maxVal = pageNum * 10;
+        let minVal = maxVal - 10;
+        console.log(minVal);
+        console.log(response.results[minVal]);
+        // Check if any more results from api
+        if (response.results[minVal] !== undefined) {
+            // Clear any movies from previous display
+            $("#search-results").html("");
+            // Retrieve 10 results from the api response, create the html dynamically and append to search results
+            for (i = minVal; i < maxVal; i++) {
+                // Create the movie holder element and card
+                let mHolder = $('<div class="movieHolder m-2 col-lg-5">');
+                let genreCard = $('<div class="card genre-card">');
+                let cardBody = $('<div class="card-body">');
+                // Get the movie data, setup the element 
+                cardBody.append('<h5 class="card-title" id="movie-title" + i>' + response.results[i].title + '</h5>');
+                cardBody.append('<p class="card-text" id="year" + i>' + response.results[i].release_date + '</p>');
+                cardBody.append('<p class="card-text" id="plot" + i>' + response.results[i].overview + '</p>');
+                // For the movie poster image
+                let imageSrc = "http://image.tmdb.org/t/p/w185//" + response.results[i].poster_path;
+                let imageEl = $('<img>');
+                imageEl.attr("src", imageSrc);
+                // Append to the search results
+                cardBody.append(imageEl);
+                // Align items centered in the card
+                cardBody.css("display", "flex");
+                cardBody.css("flex-direction", "column");
+                cardBody.css("align-items", "center");
 
-
-        // Retrieve the first 6 results from the api response, create the html dynamically and append to search results
-        for (i = 0; i < 6; i++) {
-            // Create the movie holder element and card
-            let mHolder = $('<div class="movieHolder m-2 col-lg-5">');
-            let genreCard = $('<div class="card genre-card">');
-            let cardBody = $('<div class="card-body">');
-            // Get the movie data, setup the element 
-            cardBody.append('<h5 class="card-title" id="movie-title" + i>' + response.results[i].title + '</h5>');
-            cardBody.append('<p class="card-text" id="year" + i>' + response.results[i].release_date + '</p>');
-            cardBody.append('<p class="card-text" id="plot" + i>' + response.results[i].overview + '</p>');
-            // For the movie poster image
-            let imageSrc = "http://image.tmdb.org/t/p/w185//" + response.results[i].poster_path;
-            let imageEl = $('<img>');
-            imageEl.attr("src", imageSrc);
-            // Append to the search results
-            cardBody.append(imageEl);
-            // Align items centered in the card
-            cardBody.css("display", "flex");
-            cardBody.css("flex-direction", "column");
-            cardBody.css("align-items", "center");
-
-            genreCard.append(cardBody);
-            mHolder.append(genreCard);
-            $("#search-results").append(mHolder);
+                genreCard.append(cardBody);
+                mHolder.append(genreCard);
+                $("#search-results").append(mHolder);
+                // Display the more results button
+                $("#more-btn").css("display", "block");
+            }
+        } else {
+            $("#error-display").css("display", "block");
         }
     }
 
@@ -124,9 +136,19 @@ $(document).ready(function () {
 
     $(document).on("click", "#movie-menu a", function (event) {
         event.preventDefault();
+        $("#error-display").css("display", "none");
+        pageNum = 1;
         let movieOption = $(this).html();
-        let genreID = getGenre(movieOption);
+        genreID = getGenre(movieOption);
         getMovieData(genreID);
+    })
+
+    $(document).on("click", "#more-btn", function (event) {
+        event.preventDefault();
+        pageNum++;
+        getMovieData(genreID);
+        // Set the focus to the top of the page
+        window.location = '#';
     })
 
 

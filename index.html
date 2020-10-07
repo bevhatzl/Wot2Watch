@@ -11,12 +11,32 @@
     <link rel="stylesheet" href="style.css">
     <title>Wot2Watch</title>
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- For favicon -->
+    <link rel="apple-touch-icon" sizes="57x57" href="./favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="./favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="./favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="./favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="./favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="./favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="./favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="./favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="./favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="./favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon/favicon-16x16.png">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="./favicon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
 </head>
 
 <body>
 
     <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark container-fluid" id="main-nav">
-        <a class="navbar-brand" href="./index.html">Wot2Watch</a>
+        <a class="navbar-brand" href="./index.html">Wot2Watch <img src="./images/W2W.png" alt="W2W logo"
+                id="logo-img"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler"
             aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -39,7 +59,6 @@
 
             <div class="col-md-12" id="heading">
                 <h1 class="titleMovies">Which movie should you watch today...</h1>
-
                 <div class="dropdown">
                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -67,7 +86,9 @@
                         <a class="dropdown-item" href="#">Western</a>
                     </div>
                 </div>
-
+            </div>
+            <div class="alert alert-warning" id="error-display" style="display: none" role="alert">
+                Sorry, you have reached the end of the list.
             </div>
         </div>
 
@@ -114,6 +135,10 @@
 
         <div class="row" id="search-results">
             <!-- HTML created dynamically in script.js -->
+        </div>
+
+        <div id="more-btn">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">More...</button>
         </div>
 
         <div class="row" id="description">

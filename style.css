@@ -9,6 +9,10 @@ body {
 	opacity: 0.7;
 }
 
+#logo-img {
+	width: 25%;
+}
+
 h1 {
 	color: #D1D2DC;
 	padding-right: 10px;
@@ -52,8 +56,35 @@ background-color: black;
     justify-content: center; 
 }
 
+#more-btn {
+	display: none;
+}
+
+#error-display {
+	margin: auto;
+	margin-bottom: 20px;
+}
+
 footer {
 	color: white;
 	margin: 50px;
 	text-align: center;
 }
+
+@media (max-width: 425px) {
+    .movieSlide{
+        width: 50%;
+    }
+    .watchTrailer{
+        width: 50%;
+	}
+	h1 {
+		display: none;
+	}
+	.dropdown {
+		margin: auto;
+	}
+}
+
+
+
