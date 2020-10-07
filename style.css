@@ -13,6 +13,10 @@ body {
 	width: 25%;
 }
 
+.btn-outline-success {
+	width: 200px;
+}
+
 h1 {
 	color: #D1D2DC;
 	padding-right: 10px;
@@ -58,6 +62,7 @@ background-color: black;
 
 #more-btn {
 	display: none;
+	margin-left: 30%;
 }
 
 #error-display {
