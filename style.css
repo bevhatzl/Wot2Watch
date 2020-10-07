@@ -1,0 +1,59 @@
+body {
+    background-color: black;
+    font-family: 'Miriam Libre', sans-serif;
+    
+}
+
+#main-nav {
+	background-color: #23252E !important;
+	opacity: 0.7;
+}
+
+h1 {
+	color: #D1D2DC;
+	padding-right: 10px;
+}
+
+a, a:hover {
+	text-decoration: none;
+}
+
+#heading {
+	display: flex;
+	align-items: space-between;
+	margin-top: 2em;
+	margin-bottom: 2em;
+}
+
+.movieSlide{
+    margin: auto;
+}
+
+.pictureCarosel{
+background-color: black;
+}
+
+.captext{
+    text-align: center;
+}
+
+#description {
+	color: white;
+	text-align: center;
+	margin-top: 40px;
+}
+
+#search-results {
+	display: none;
+}
+
+.movieHolder {
+    display: flex;
+    justify-content: center; 
+}
+
+footer {
+	color: white;
+	margin: 50px;
+	text-align: center;
+}

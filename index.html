@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Miriam+Libre&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <title>Wot2Watch</title>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+</head>
+
+<body>
+
+    <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark container-fluid" id="main-nav">
+        <a class="navbar-brand" href="./index.html">Wot2Watch</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler"
+            aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarToggler">
+            <form class="form-inline ml-auto">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <button class="btn btn-outline-success my-2 my-sm-0 nav-item" type="submit">Movies</button></li>
+                    <li class="nav-item"> <button class="btn btn-outline-success my-2 my-sm-0 nav-item" type="submit"><a
+                                href="tv.html">Series</a></button></li>
+                </ul>
+            </form>
+        </div>
+    </nav>
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-md-12" id="heading">
+                <h1 class="titleMovies">Which movie should you watch today...</h1>
+
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Select a Genre
+                    </button>
+                    <div class="dropdown-menu" id="movie-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Adventure</a>
+                        <a class="dropdown-item" href="#">Animation</a>
+                        <a class="dropdown-item" href="#">Comedy</a>
+                        <a class="dropdown-item" href="#">Crime</a>
+                        <a class="dropdown-item" href="#">Documentary</a>
+                        <a class="dropdown-item" href="#">Drama</a>
+                        <a class="dropdown-item" href="#">Family</a>
+                        <a class="dropdown-item" href="#">Fantasy</a>
+                        <a class="dropdown-item" href="#">History</a>
+                        <a class="dropdown-item" href="#">Horror</a>
+                        <a class="dropdown-item" href="#">Music</a>
+                        <a class="dropdown-item" href="#">Mystery</a>
+                        <a class="dropdown-item" href="#">Romance</a>
+                        <a class="dropdown-item" href="#">Science Fiction</a>
+                        <a class="dropdown-item" href="#">TV Movie</a>
+                        <a class="dropdown-item" href="#">Thriller</a>
+                        <a class="dropdown-item" href="#">War</a>
+                        <a class="dropdown-item" href="#">Western</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="pictureCarosel m-2">
+
+            <div id="carouselControls" class="carousel slide" data-ride="carousel" data-interval="2000">
+                <div class="carousel-inner">
+                    <div class="carousel-item active" data-interval="5000">
+                        <img src="./images/notimetodie.jpg" class="d-block movieSlide mt-2" alt="...">
+                        <div class="captext mt-2 mb-2">
+                            <button class="watchTrailer"><a href="https://www.youtube.com/watch?v=ixZc90cnhgM"
+                                    target="_blank" class="watchTrailer">Watch Trailer</a></button>
+                        </div>
+                    </div>
+
+                    <div class="carousel-item" data-interval="5000">
+                        <img src="./images/rsz_blackwidow.jpg" class="d-block movieSlide mt-2" alt="...">
+                        <div class="captext mt-2 mb-2">
+                            <button class="watchTrailer"><a href="https://www.youtube.com/watch?v=ybji16u608U"
+                                    target="_blank" class="watchTrailer">Watch Trailer</a></button>
+                        </div>
+                    </div>
+
+                    <div class="carousel-item" data-interval="5000">
+                        <img src="./images/rsz_wonderwowmanposter.jpg" class="d-block movieSlide mt-2" alt="...">
+                        <div class="captext mt-2 mb-2">
+                            <button class="watchTrailer"><a href="https://www.youtube.com/watch?v=ybji16u608U"
+                                    target="_blank" class="watchTrailer">Watch Trailer</a></button>
+                        </div>
+                    </div>
+
+                </div>
+                <a class="carousel-control-prev" href="#carouselControls" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselControls" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+
+        </div>
+
+        <div class="row" id="search-results">
+
+            <div class="movieHolder m-2 col-lg-5">
+                <div class="card genre-card">
+                    <div class="card-body">
+                        <h5 class="card-title" id="movie-title1"></h5>
+                        <p class="card-text" id="year1"></p>
+                        <p class="card-text" id="plot1"></p>
+                        <img src="" id="image1">
+                    </div>
+                </div>
+            </div>
+
+            <div class="movieHolder m-2 col-lg-5">
+                <div class="card genre-card">
+                    <div class="card-body">
+                        <h5 class="card-title" id="movie-title2"></h5>
+                        <p class="card-text" id="year2"></p>
+                        <p class="card-text" id="plot2"></p>
+                        <img src="" id="image2">
+                    </div>
+                </div>
+            </div>
+
+            <div class="movieHolder m-2 col-lg-5">
+                <div class="card genre-card card-three">
+                    <div class="card-body">
+                        <h5 class="card-title" id="movie-title3"></h5>
+                        <p class="card-text" id="year3"></p>
+                        <p class="card-text" id="plot3"></p>
+                        <img src="" id="image3">
+                    </div>
+                </div>
+            </div>
+
+            <div class="movieHolder m-2 col-lg-5">
+                <div class="card genre-card">
+                    <div class="card-body">
+                        <h5 class="card-title" id="movie-title4"></h5>
+                        <p class="card-text" id="year4"></p>
+                        <p class="card-text" id="plot4"></p>
+                        <img src="" id="image4">
+                    </div>
+                </div>
+            </div>
+
+            <div class="movieHolder m-2 col-lg-5">
+                <div class="card genre-card">
+                    <div class="card-body">
+                        <h5 class="card-title" id="movie-title5"></h5>
+                        <p class="card-text" id="year5"></p>
+                        <p class="card-text" id="plot5"></p>
+                        <img src="" id="image5">
+                    </div>
+                </div>
+            </div>
+
+            <div class="movieHolder m-2 col-lg-5">
+                <div class="card genre-card">
+                    <div class="card-body">
+                        <h5 class="card-title" id="movie-title6"></h5>
+                        <p class="card-text" id="year6"></p>
+                        <p class="card-text" id="plot6"></p>
+                        <img src="" id="image6">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row" id="description">
+            <h3>Generating for you the most popular movies and series based on the genre of your choice.</h3>
+        </div>
+
+        <footer>
+            Beverley Hatzl - 2020
+        </footer>
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="./script.js"></script>
+
+
+</body>
+
+</html>
