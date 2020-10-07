@@ -74,36 +74,35 @@ $(document).ready(function () {
         $(".pictureCarosel").css("display", "none");
         // Display the movie poster cards
         $("#search-results").css("display", "flex");
+        // Clear any movies from previous search
+        $("#search-results").html("");
 
-        $("#movie-title1").text(response.results[0].title);
-        $("#year1").text(response.results[0].release_date);
-        $("#plot1").text(response.results[0].overview);
-        $("#image1").attr("src", "http://image.tmdb.org/t/p/w185//" + response.results[0].poster_path);
 
-        $("#movie-title2").text(response.results[1].title);
-        $("#year2").text(response.results[1].release_date);
-        $("#plot2").text(response.results[1].overview);
-        $("#image2").attr("src", "http://image.tmdb.org/t/p/w185//" + response.results[1].poster_path);
+        // Retrieve the first 6 results from the api response, create the html dynamically and append to search results
+        for (i = 0; i < 6; i++) {
+            // Create the movie holder element and card
+            let mHolder = $('<div class="movieHolder m-2 col-lg-5">');
+            let genreCard = $('<div class="card genre-card">');
+            let cardBody = $('<div class="card-body">');
+            // Get the movie data, setup the element 
+            cardBody.append('<h5 class="card-title" id="movie-title" + i>' + response.results[i].title + '</h5>');
+            cardBody.append('<p class="card-text" id="year" + i>' + response.results[i].release_date + '</p>');
+            cardBody.append('<p class="card-text" id="plot" + i>' + response.results[i].overview + '</p>');
+            // For the movie poster image
+            let imageSrc = "http://image.tmdb.org/t/p/w185//" + response.results[i].poster_path;
+            let imageEl = $('<img>');
+            imageEl.attr("src", imageSrc);
+            // Append to the search results
+            cardBody.append(imageEl);
+            // Align items centered in the card
+            cardBody.css("display", "flex");
+            cardBody.css("flex-direction", "column");
+            cardBody.css("align-items", "center");
 
-        $("#movie-title3").text(response.results[2].title);
-        $("#year3").text(response.results[2].release_date);
-        $("#plot3").text(response.results[2].overview);
-        $("#image3").attr("src", "http://image.tmdb.org/t/p/w185//" + response.results[2].poster_path);
-
-        $("#movie-title4").text(response.results[3].title);
-        $("#year4").text(response.results[3].release_date);
-        $("#plot4").text(response.results[3].overview);
-        $("#image4").attr("src", "http://image.tmdb.org/t/p/w185//" + response.results[3].poster_path);
-
-        $("#movie-title5").text(response.results[4].title);
-        $("#year5").text(response.results[4].release_date);
-        $("#plot5").text(response.results[4].overview);
-        $("#image5").attr("src", "http://image.tmdb.org/t/p/w185//" + response.results[4].poster_path);
-
-        $("#movie-title6").text(response.results[5].title);
-        $("#year6").text(response.results[5].release_date);
-        $("#plot6").text(response.results[5].overview);
-        $("#image6").attr("src", "http://image.tmdb.org/t/p/w185//" + response.results[5].poster_path);
+            genreCard.append(cardBody);
+            mHolder.append(genreCard);
+            $("#search-results").append(mHolder);
+        }
     }
 
     function buildQueryURL(genreSearch) {
