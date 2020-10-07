@@ -12,23 +12,7 @@
     <title>Wot2Watch</title>
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- For favicon -->
-    <link rel="apple-touch-icon" sizes="57x57" href="./favicon/apple-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="./favicon/apple-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="./favicon/apple-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="./favicon/apple-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="./favicon/apple-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="./favicon/apple-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="./favicon/apple-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="./favicon/apple-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="./favicon/android-icon-192x192.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="./favicon/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="./favicon/favicon-16x16.png">
-    <link rel="manifest" href="/manifest.json">
-    <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="./favicon/ms-icon-144x144.png">
-    <meta name="theme-color" content="#ffffff">
+    <link rel="icon" type="image/png" sizes="16x16" href="./images/W2W.png">
 
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 </head>
@@ -46,10 +30,12 @@
             <form class="form-inline ml-auto">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <button class="btn btn-outline-success my-2 my-sm-0 nav-item" type="submit"><a
-                                href="./index.html">Movies</a></button></li>
-                    <li class="nav-item"> <button class="btn btn-outline-success my-2 my-sm-0 nav-item"
-                            type="submit">Series</button></li>
+                        <a href="./index.html" class="btn-outline-success">Movies</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="#" class="btn-outline-success">Series</a>
+                    </li>
                 </ul>
             </form>
         </div>
@@ -62,7 +48,7 @@
             <div class="col-md-12" id="heading">
                 <h1 class="titleMovies">Which series should you watch today...</h1>
                 <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                    <button class="btn btn-outline-success dropdown-toggle" type="button" id="dropdownMenuButton"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Select a Genre
                     </button>

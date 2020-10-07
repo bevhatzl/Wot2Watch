@@ -9,6 +9,10 @@ body {
 	opacity: 0.7;
 }
 
+.nav-item {
+	padding-right: 15px;
+}
+
 #logo-img {
 	width: 25%;
 }
@@ -45,6 +49,12 @@ footer a {
 
 .pictureCarosel, .seriesCarosel {
 background-color: black;
+}
+
+.watchTrailer {
+	background-color: #28a745;
+	color: white;
+	width: 200px;
 }
 
 .captext{
