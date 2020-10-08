@@ -149,5 +149,12 @@ $(document).ready(function () {
         window.location = '#';
     })
 
+    // To collapse the menu in mobile view when clicking on link
+    $(document).on('click', '.navbar-collapse.in', function (e) {
+        if ($(e.target).is('a')) {
+            $(this).collapse('hide');
+        }
+    });
+
 
 })
