@@ -10,11 +10,16 @@ body {
 }
 
 .nav-item {
-	padding-right: 15px;
+	padding: 20px;
+}
+
+.form-inline {
+	padding-left: 85%;
 }
 
 #logo-img {
 	width: 25%;
+	padding-left: 10px;
 }
 
 .btn-outline-success {
@@ -105,7 +110,16 @@ footer {
 	.dropdown {
 		margin: auto;
 	}
+	.sticky-top {
+		position: static;
+	}
+	.form-inline {
+		padding-left: 75%;
+	}
 }
 
-
-
+@media (max-width: 325px) {
+	.form-inline {
+		padding-left: 0;
+	}
+}

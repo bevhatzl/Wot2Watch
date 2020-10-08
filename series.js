@@ -7,7 +7,7 @@ $(document).ready(function () {
     // To convert the genre to a genreID needed for api search
     function getGenre(genreString) {
         switch (genreString) {
-            case "Action & Adventure":
+            case "Action &amp; Adventure":
                 genreID = 10759;
                 break;
             case "Animation":
@@ -129,6 +129,8 @@ $(document).ready(function () {
         seriesPageNum = 1;
         let seriesOption = $(this).html();
         seriesGenreID = getGenre(seriesOption);
+        console.log(seriesOption);
+        console.log(seriesGenreID);
         getSeriesData(seriesGenreID);
     })
 
